@@ -46,7 +46,7 @@ while (continuar)
             Imposto();
             break;
         default:
-            Console.WriteLine("Opção inválida");
+            Console.WriteLine("Opção inválida ");
             break;
     }
 }
