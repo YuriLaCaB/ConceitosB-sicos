@@ -7,7 +7,7 @@ int opcao = 0;
 bool continuar = true;
 while (continuar)
 {
-    Console.Write("[0] Sair\n[1] Somar dois numeros\n[2] Converter metros para milímetros\n[3] Aumento\n[4] Desconto\n[5] Aluguel de carro\n[6] Calculo de IMC\n[7] Tabuada\nDigite: ");
+    Console.Write("[0] Sair\n[1] Somar dois numeros\n[2] Converter metros para milímetros\n[3] Aumento\n[4] Desconto\n[5] Aluguel de carro\n[6] Calculo de IMC\n[7] Tabuada Digite\n[8]Múltiplos de 3 entre 0 e 10\n[9]Fatoriais de 1 até 10\n[10]Imposto de renda\nDigite: ");
     opcao = int.Parse(Console.ReadLine());
     switch (opcao)
     {
@@ -35,6 +35,15 @@ while (continuar)
             break;
         case 7:
             Tab();
+            break;
+        case 8:
+            mult();
+            break;
+        case 9:
+            fatorial();
+            break;
+        case 10:
+            Imposto();
             break;
         default:
             Console.WriteLine("Opção inválida");
@@ -117,6 +126,39 @@ void Tab()
     Console.Write("Número: ");
     int num1 = int.Parse(Console.ReadLine());
     for (int i = 0; i <= 10; i++) Console.WriteLine($"{num1} * {i} = {tabuadaLocal.multiplicacao(num1, i)}");
+}
+void mult()
+{
+    MultiplosDeTres multiplolocal = new MultiplosDeTres();
+    int num1 = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        int numero = multiplolocal.Multiplos(num1);
+        Console.WriteLine(" n"+(i+1)+" = "+numero);
+        num1=numero;
+    }   
+}
+void fatorial()
+{
+    FatorialDosNumeros fatorialocal = new FatorialDosNumeros();
+
+    for (int i = 1; i < 11; i++)
+    {   
+        int numero= fatorialocal.FatorialNum(i);
+        Console.WriteLine(numero);
+    }
+}
+void Imposto()
+{
+    int valor,renda;
+    Console.WriteLine("Qual a porcentagem do imposto de renda:  ");
+    valor=int.Parse(Console.ReadLine());
+    Console.WriteLine("Qual a sua renda: ");
+    renda=int.Parse(Console.ReadLine());
+    ImpostoDeRenda impostolocal = new ImpostoDeRenda();
+    double imposto = impostolocal.Imposto(valor,renda);
+    Console.WriteLine($"o valor cobrado: R${imposto}");
+
 }
 
 /*
