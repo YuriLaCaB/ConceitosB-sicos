@@ -10,7 +10,7 @@ namespace Aula01._1bim
     {
         public double calcularIMC(double altura, double massa)
         {
-            return massa / altura;
+            return massa / (altura * altura);
         }
     }
 }
